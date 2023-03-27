@@ -1,1 +1,10 @@
 /* Your styles goes here. */
+.rootContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  background-color: lightgrey;
+  border-right: 1px solid grey;
+}
