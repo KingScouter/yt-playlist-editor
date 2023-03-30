@@ -1,36 +1,30 @@
-import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-import { LoginContext } from 'src/contexts/LoginContext'
+import TokenService from '../../services/token.service';
 
 const ProtectedRoute = ({ children }) => {
-  const {apiToken} = useContext(LoginContext);
-  console.log('Protected Route - Token: ', apiToken);
-  if (!apiToken) {
+  const user = TokenService.getUser();
+  if (!user) {
     console.log('Not logged in -> Redirect to login');
     return <Navigate to='/login' replace />;
   }
+  console.log('Protected Route - Token: ', user);
 
   return children;
 }
 
 export function Inner() {
-  const { apiToken, setApiToken } = useContext(LoginContext);
-
-  const setTestToken = () => {
-    setApiToken('testValue');
-  }
+  const user = TokenService.getUser();
 
   return (
     <div>
       This is the main menu
       {
-        apiToken ? (
-          <p>Login successfull. Token: {apiToken}</p>
+        user ? (
+          <p>Login successfull. Token: {JSON.stringify(user)}</p>
         ) : (
           <p>Login didn't happen for now</p>
         )
       }
-      <button onClick={setTestToken}>Set test token</button>
     </div>
   )
 }

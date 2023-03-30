@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './app/app';
 import Login, { action as loginAction } from './routes/login';
 import LoginSuccessfull, { loader as codeLoader } from './routes/loginSuccessfull';
-import MainMenu from './routes/mainMenu';
+import MainMenu from './routes/main-menu/mainMenu';
 
 const router = createBrowserRouter([
   {

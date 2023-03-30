@@ -1,6 +1,6 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
-import { LoginContext } from 'src/contexts/LoginContext';
+import TokenService from '../services/token.service';
 
 export async function loader({ request }) {
   const url = new URL(request.url);
@@ -9,18 +9,16 @@ export async function loader({ request }) {
   return { code };
 }
 
-export default function LoginSuccessfull(props) {
+export default function LoginSuccessfull() {
   const { code } = useLoaderData();
-  const { setApiToken } = useContext(LoginContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setApiToken(code);
+    // setApiToken(code);
+    TokenService.updateLocalAccesToken(code);
 
     setTimeout(() => {
       console.log('Time for the redirect');
-      // setApiToken(code);
-      // console.log('Timeout -> apiToken: ', code)
       navigate('/');
     }, 2000);
   })
