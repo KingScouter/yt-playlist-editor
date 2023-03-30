@@ -1,3 +1,12 @@
 .sidebar {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.playlist-list {
+  border-top: 1px solid darkgray;
+  padding: 10px 0px;
+  margin: 0 30px;
+  list-style-type: none;
 }

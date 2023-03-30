@@ -3,8 +3,8 @@ import * as ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import App from './app/app';
-import Login, { action as loginAction } from './routes/login';
-import LoginSuccessfull, { loader as codeLoader } from './routes/loginSuccessfull';
+import Login, { action as loginAction } from './routes/login/login';
+import LoginSuccessfull, { loader as codeLoader } from './routes/login/loginSuccessfull';
 import MainMenu from './routes/main-menu/mainMenu';
 
 const router = createBrowserRouter([

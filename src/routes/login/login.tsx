@@ -11,7 +11,7 @@ export async function action() {
 export default function Login() {
   return (
     <Form method="post" id="login-form" className={styles.loginFormContainer}>
-      <button type="submit">Login with Google</button>
+      <button type="submit" className="btn btn-primary">Login with Google</button>
     </Form>
   )
 }

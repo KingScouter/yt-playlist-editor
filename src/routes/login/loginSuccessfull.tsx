@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
-import TokenService from '../services/token.service';
+import TokenService from '../../services/token.service';
 
 export async function loader({ request }) {
   const url = new URL(request.url);
